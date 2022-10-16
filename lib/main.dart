@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:appocrall/camaraid.dart';
 import 'package:appocrall/client_api%20(1).dart';
+import 'package:appocrall/idcard.dart';
 import 'package:flutter/material.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
@@ -49,7 +50,12 @@ class _OCRTextState extends State<OCRText> {
                 textColor: Colors.black,
                 color: Colors.blue,
                 child: Text('ทดสอบ'),
-                onPressed: testocr)
+                onPressed: testocr),
+            RaisedButton(
+                textColor: Colors.black,
+                color: Colors.blue,
+                child: Text('บัตรประชาชน'),
+                onPressed: testidcard)
           ],
         ));
   }
@@ -68,6 +74,12 @@ class _OCRTextState extends State<OCRText> {
   testcamera() {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return ExampleCameraOverlay();
+    }));
+  }
+
+  testidcard() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return idcard();
     }));
   }
 
@@ -157,24 +169,6 @@ class MyHomePage extends StatelessWidget {
               child: OCRText()),
         ],
       )),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.red),
-            label: 'หน้าหลัก',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.photo,
-            ),
-            label: 'รูปภาพ',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.description),
-            label: 'ข้อมูลบัตรประชาชน',
-          ),
-        ],
-      ),
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
         // through the options in the drawer if there isn't enough vertical

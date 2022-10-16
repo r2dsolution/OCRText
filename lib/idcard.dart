@@ -1,14 +1,32 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-class Idcamera extends StatelessWidget {
-  // This widget is the root of your application.
+void main() {
+  runApp(idcard());
+}
+
+class idcard extends StatefulWidget {
+  @override
+  _idcardState createState() => _idcardState();
+}
+
+class _idcardState extends State<idcard> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'OCR',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return new MaterialApp(
+      title: "Basic Show Image",
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("บัตรประชาชน"),
+        ),
+        body: new ListView(
+          children: <Widget>[
+            new Image.asset(
+              'unnamed (1).png',
+              fit: BoxFit.cover,
+            ),
+          ],
+        ),
       ),
     );
   }
