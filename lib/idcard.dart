@@ -22,7 +22,7 @@ class _idcardState extends State<idcard> {
         body: new ListView(
           children: <Widget>[
             new Image.asset(
-              'unnamed (1).png',
+              'pngtree-invitation-card-background-hd-image_730851.jpg',
               fit: BoxFit.cover,
             ),
           ],
