@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-appocrall-dev-182717-authRole",
+      "UnauthRoleArn": "arn:aws:iam::902033226239:role/amplify-appocrall-dev-182717-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::902033226239:role/amplify-appocrall-dev-182717-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-appocrall-dev-182717-deployment",
+      "UnauthRoleName": "amplify-appocrall-dev-182717-unauthRole",
+      "StackName": "amplify-appocrall-dev-182717",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:902033226239:stack/amplify-appocrall-dev-182717/d5d03c70-4569-11ed-b86a-06750a797eb4",
+      "AmplifyAppId": "d1mvf67l301cx6"
+    },
+    "categories": {
+      "function": {
+        "idcard": {
+          "deploymentBucketName": "amplify-appocrall-dev-182717-deployment",
+          "s3Key": "amplify-builds/idcard-466b4453496d4a382f73-build.zip"
+        }
+      },
+      "auth": {
+        "appocrall01841924": {},
+        "true": {}
+      }
+    }
+  }
+}
