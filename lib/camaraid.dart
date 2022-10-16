@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:appocrall/idcard.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter_camera_overlay/flutter_camera_overlay.dart';
@@ -75,42 +76,41 @@ class _ExampleCameraOverlayState extends State<ExampleCameraOverlay> {
                     style: TextStyle(color: Colors.black),
                   ));
             }
-            return CameraOverlay(
-                snapshot.data!.first,
-                CardOverlay.byFormat(format),
-                (XFile file) => showDialog(
-                      context: context,
-                      barrierColor: Colors.black,
-                      builder: (context) {
-                        CardOverlay overlay = CardOverlay.byFormat(format);
-                        return AlertDialog(
-                            actionsAlignment: MainAxisAlignment.center,
-                            backgroundColor: Colors.black,
-                            title: const Text('Capture',
-                                style: TextStyle(color: Colors.white),
-                                textAlign: TextAlign.center),
-                            actions: [
-                              OutlinedButton(
-                                  onPressed: () => Navigator.of(context).pop(),
-                                  child: const Icon(Icons.close))
-                            ],
-                            content: SizedBox(
-                                width: double.infinity,
-                                child: AspectRatio(
-                                  aspectRatio: overlay.ratio!,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                      fit: BoxFit.fitWidth,
-                                      alignment: FractionalOffset.center,
-                                      image: FileImage(
-                                        File(file.path),
-                                      ),
-                                    )),
-                                  ),
-                                )));
-                      },
-                    ),
+            return CameraOverlay(snapshot.data!.first,
+                CardOverlay.byFormat(format), (XFile file) => takeImage(file),
+                // showDialog(
+                //       context: context,
+                //       barrierColor: Colors.black,
+                //       builder: (context) {
+                //         CardOverlay overlay = CardOverlay.byFormat(format);
+                //         return AlertDialog(
+                //             actionsAlignment: MainAxisAlignment.center,
+                //             backgroundColor: Colors.black,
+                //             title: const Text('Capture',
+                //                 style: TextStyle(color: Colors.white),
+                //                 textAlign: TextAlign.center),
+                //             actions: [
+                //               OutlinedButton(
+                //                   onPressed: takeImage,
+                //                   child: const Icon(Icons.close))
+                //             ],
+                //             content: SizedBox(
+                //                 width: double.infinity,
+                //                 child: AspectRatio(
+                //                   aspectRatio: overlay.ratio!,
+                //                   child: Container(
+                //                     decoration: BoxDecoration(
+                //                         image: DecorationImage(
+                //                       fit: BoxFit.fitWidth,
+                //                       alignment: FractionalOffset.center,
+                //                       image: FileImage(
+                //                         File(file.path),
+                //                       ),
+                //                     )),
+                //                   ),
+                //                 )));
+                //       },
+                //     ),
                 info:
                     'วางบัตรประจำตัวของคุณภายในสี่เหลี่ยมผืนผ้าและตรวจดูให้แน่ใจว่ารูปภาพนั้นสามารถอ่านได้อย่างสมบูรณ์',
                 label: 'กำลังถ่ายบัตรบัตรประชาชน');
@@ -125,5 +125,11 @@ class _ExampleCameraOverlayState extends State<ExampleCameraOverlay> {
         },
       ),
     ));
+  }
+
+  takeImage(XFile file) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return idcard();
+    }));
   }
 }
