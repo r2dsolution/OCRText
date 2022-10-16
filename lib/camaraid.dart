@@ -129,7 +129,7 @@ class _ExampleCameraOverlayState extends State<ExampleCameraOverlay> {
 
   takeImage(XFile file) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return idcard(idFile: file);
+      return idcard(filePath: file.path);
     }));
   }
 }
